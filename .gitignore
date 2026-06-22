@@ -1,0 +1,13 @@
+# Deps & build
+node_modules/
+dist/
+release/
+
+# macOS (external drive injects these)
+._*
+.DS_Store
+
+# Logs / local
+*.log
+.env
+*.tsbuildinfo
