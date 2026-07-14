@@ -27,6 +27,7 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@electron/notarize": "^2.5.0",
     "@types/node": "^24.12.4",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
@@ -45,9 +46,22 @@
   "build": {
     "appId": "org.locolab.thematic-lens",
     "productName": "Thematic Lens",
-    "directories": { "output": "release" },
+    "directories": { "output": "release", "buildResources": "build" },
     "files": ["dist/**/*", "public/**/*"],
-    "mac": { "category": "public.app-category.education" },
+    "afterSign": "scripts/notarize.js",
+    "publish": { "provider": "github", "owner": "michael-borck", "repo": "thematic-lens" },
+    "mac": {
+      "category": "public.app-category.education",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "notarize": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "target": [
+        { "target": "dmg", "arch": ["x64", "arm64"] },
+        { "target": "zip", "arch": ["x64", "arm64"] }
+      ]
+    },
     "linux": { "target": ["AppImage", "deb"] },
     "win": { "target": ["nsis"] }
   }
