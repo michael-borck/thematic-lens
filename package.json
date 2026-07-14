@@ -1,6 +1,6 @@
 {
   "name": "thematic-lens",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Local-first desktop app for human-in-the-loop thematic analysis — curates the output of the thematic-analyser engine.",
   "author": "Michael Borck",
   "license": "MIT",
