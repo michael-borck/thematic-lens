@@ -1,8 +1,11 @@
 {
   "name": "thematic-lens",
   "version": "0.1.1",
-  "description": "Local-first desktop app for human-in-the-loop thematic analysis — curates the output of the thematic-analyser engine.",
-  "author": "Michael Borck",
+  "description": "Local-first desktop app for human-in-the-loop thematic analysis \u2014 curates the output of the thematic-analyser engine.",
+  "author": {
+    "name": "Michael Borck",
+    "email": "michael.borck@curtin.edu.au"
+  },
   "license": "MIT",
   "main": "dist/main/index.js",
   "scripts": {
@@ -46,10 +49,20 @@
   "build": {
     "appId": "org.locolab.thematic-lens",
     "productName": "Thematic Lens",
-    "directories": { "output": "release", "buildResources": "build" },
-    "files": ["dist/**/*", "public/**/*"],
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "public/**/*"
+    ],
     "afterSign": "scripts/notarize.js",
-    "publish": { "provider": "github", "owner": "michael-borck", "repo": "thematic-lens" },
+    "publish": {
+      "provider": "github",
+      "owner": "michael-borck",
+      "repo": "thematic-lens"
+    },
     "mac": {
       "category": "public.app-category.education",
       "hardenedRuntime": true,
@@ -58,11 +71,32 @@
       "entitlements": "build/entitlements.mac.plist",
       "entitlementsInherit": "build/entitlements.mac.plist",
       "target": [
-        { "target": "dmg", "arch": ["x64", "arm64"] },
-        { "target": "zip", "arch": ["x64", "arm64"] }
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
       ]
     },
-    "linux": { "target": ["AppImage", "deb"] },
-    "win": { "target": ["nsis"] }
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    }
   }
 }
